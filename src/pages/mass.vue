@@ -1,8 +1,10 @@
 <template>
-  <div class="background">
-    <div class="spirograph">
-      <div v-for="a in Array(64)" :key="a" class="a">
-        <div class="b"></div>
+  <div class="background-container">
+    <div class="background">
+      <div class="spirograph">
+        <div v-for="a in Array(64)" :key="a" class="a">
+          <div class="b"></div>
+        </div>
       </div>
     </div>
   </div>
