@@ -1,0 +1,60 @@
+@use "sass:math";
+
+@keyframes collapse {
+  50% {
+    transform: translate3d(0, -31.8%, 0) rotate(45deg);
+  }
+}
+
+.spirograph {
+  width: 22%;
+  height: 22%;
+}
+
+.a {
+  position: absolute;
+  inset: 0;
+}
+
+.b {
+  position: absolute;
+  top: -100%;
+  left: -50%;
+  border-radius: 0 100% 50% 100%;
+  border: 1px solid #f00;
+  width: 200%;
+  height: 200%;
+  transform: translate3d(0, 0, 0) rotate(45deg);
+  backface-visibility: hidden;
+  animation: 8s ease-in-out 0s infinite collapse;
+  will-change: transform;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    border-radius: 50% 50% 0;
+    border: 1px solid #f00;
+    width: 50%;
+    height: 50%;
+  }
+}
+
+.button {
+  &:hover {
+    color: #f00;
+  }
+
+  &:active {
+    color: #c00;
+  }
+}
+
+@for $i from 1 through 63 {
+  $rotation: math.div(360deg, 64) * $i;
+
+  .a:nth-child(#{$i + 1}) {
+    transform: rotate($rotation);
+  }
+}

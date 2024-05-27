@@ -1,0 +1,155 @@
+@use "sass:math";
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes spin2 {
+  100% {
+    transform: rotate(-270deg);
+  }
+}
+
+.spirograph {
+  width: 15%;
+  height: 15%;
+}
+
+.container {
+  position: absolute;
+  inset: 0;
+}
+
+.a {
+  position: absolute;
+  inset: 25%;
+}
+
+.container {
+  animation: 64s linear 0s infinite spin;
+  will-change: transform;
+
+  & + .container {
+    transform: rotate(90deg);
+    animation-duration: 96s;
+    animation-name: spin2;
+
+    .a {
+      inset: 0;
+    }
+  } 
+}
+
+$b-animation-duration: 4s;
+
+.b {
+  position: absolute;
+  top: -350%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    border: 1px solid #0ff;
+    opacity: 0;
+    animation: $b-animation-duration ease-out 0s infinite blink;
+    will-change: opacity;
+  }
+
+  &:before {
+    top: 30%;
+    left: 0;
+  }
+
+  &:after {
+    top: 0;
+    left: 30%;
+  }
+}
+
+.a:nth-child(odd) .b {
+  &:after {
+    top: 60%;
+    left: 30%;
+  }
+}
+
+.button {
+  &:hover {
+    color: #0ff;
+  }
+
+  &:active {
+    color: #0bb;
+  }
+}
+
+// a rotation
+@for $i from 1 through 15 {
+  $rotation: math.div(360deg, 16) * $i;
+
+  .a:nth-child(#{$i + 1}) {
+    transform: rotate($rotation);
+  }
+}
+
+// b rotation
+@for $i from 1 through 3 {
+  $rotation: math.div(90deg, 4) * $i;
+
+  .b:nth-child(#{$i + 1}) {
+    transform: rotate($rotation);
+
+    .a:nth-child(odd) & {
+      transform: rotate(-$rotation);
+    }
+  }
+}
+
+$delay-major-interval: math.div($b-animation-duration, 4);
+$delay-minor-interval: math.div($delay-major-interval, 16);
+$delay-step: math.div($delay-major-interval, 4);
+
+// b animation-delay
+@for $i from 1 through 4 {
+  $delayMajor: $delay-major-interval * ($i - 1);
+
+  @for $d from 1 through 4 {
+    $delayMinor: $delay-minor-interval * ($d - 1);
+
+    .b:nth-child(#{$d}) {
+      .a:nth-child(8n+#{$i * 2 - 1}) & {
+        &:before {
+          animation-delay: $delayMajor + $delayMinor;
+        }
+
+        &:after {
+          animation-delay: $delayMajor + $delayMinor + $delay-step;
+        }
+      }
+
+      .a:nth-child(8n+#{$i * 2}) & {
+        &:before {
+          animation-delay: $delayMajor + $delayMinor + $delay-step * 2;
+        }
+
+        &:after {
+          animation-delay: $delayMajor + $delayMinor + $delay-step * 3;
+        }
+      }
+    }
+  }
+}
