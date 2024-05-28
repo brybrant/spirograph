@@ -2,15 +2,8 @@
   <div class="background-container">
     <div class="background">
       <div class="spirograph">
-        <div class="container">
-          <div v-for="a in Array(16)" :key="a" class="a">
-            <div v-for="b in Array(4)" :key="b" class="b"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div v-for="a in Array(16)" :key="a" class="a">
-            <div v-for="b in Array(4)" :key="b" class="b"></div>
-          </div>
+        <div v-for="a in Array(128)" :key="a" class="a">
+          <div class="b" />
         </div>
       </div>
     </div>

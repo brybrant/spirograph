@@ -1,18 +1,8 @@
 @use "sass:math";
 
-@for $i from 1 through 31 {
-  $rotation: math.div(90deg, 32) * $i;
-
-  @keyframes spin#{$i} {
-    50% {
-      transform: translate3d(-50%, -50%, 0) rotate(-$rotation);
-    }
-  }
-}
-
 .spirograph {
-  width: 35%;
-  height: 35%;
+  width: 45%;
+  height: 45%;
 }
 
 .a, .b {
@@ -33,10 +23,7 @@
 
 .b {
   border: 1px solid #ff0;
-  transform: translate3d(-50%, -50%, 0);
-  backface-visibility: hidden;
-  animation: 16s ease-in-out 0s infinite none;
-  will-change: transform;
+  transform: translate(-50%, -50%);
 }
 
 .button {
@@ -52,13 +39,12 @@
 $scale: 1;
 
 @for $i from 1 through 31 {
-  $rotation: math.div(90deg, 32) * $i;
+  $rotation: math.div(64deg, 32) * $i;
   $scale: math.cos($rotation) + math.sin($rotation) * $scale;
 
   .b:nth-child(#{$i + 1}) {
     width: 100% * $scale;
     height: 100% * $scale;
-    transform: translate3d(-50%, -50%, 0) rotate($rotation);
-    animation-name: spin#{$i};
+    transform: translate(-50%, -50%) rotate($rotation);
   }
 }
