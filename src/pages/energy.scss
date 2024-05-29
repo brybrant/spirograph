@@ -12,14 +12,33 @@
 
 .b {
   position: absolute;
-  top: -320%;
-  left: 0;
-  width: 310%;
-  height: 200%;
-  border: 1px solid transparent;
-  border-top-color: #0ff;
-  border-left-color: #0ff;
-  transform: rotate(-49deg);
+  top: -85%;
+  left: 65%;
+  width: 50%;
+  height: 5%;
+  border-left: 1px solid #0ff;
+  border-bottom: 1px solid #0ff;
+  transform: rotate(-45deg);
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    height: 1250%;
+    border-top: 1px solid #0ff;
+    border-left: 1px solid #0ff;
+  }
+
+  &:before {
+    bottom: -1px;
+    left: 100%;
+    width: 100%;
+  }
+
+  &:after {
+    bottom: calc(1250% - 2px);
+    left: 200%;
+    width: 215%;
+  }
 }
 
 .button {
