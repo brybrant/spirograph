@@ -73,16 +73,19 @@ nav {
   span {
     position: relative;
     display: block;
+    overflow: hidden;
     padding: $nav-vertical-padding 0;
 
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       right: 0;
-      bottom: 0;
+      bottom: -($nav-vertical-padding * 0.5);
       left: 0;
-      border-bottom: 0 solid currentColor;
-      transition: border-bottom-width 83ms linear;
+      height: $nav-vertical-padding;
+      background: currentColor;
+      transition: transform 83ms ease-in;
+      transform: scaleY(0);
     }
   }
 
@@ -99,22 +102,23 @@ nav {
       color: #fff;
 
       span:after {
-        border-bottom-width: $nav-vertical-padding * 0.25;
+        transition-timing-function: ease-out;
+        transform: scaleY(0.5);
       }
     }
 
-    &.router-link-active {
+    &.active {
       color: #fff;
 
       span:after {
-        border-bottom-width: $nav-vertical-padding * 0.5;
-        transition: none;
+        transition-timing-function: ease-out;
+        transform: scaleY(1);
       }
     }
   }
 }
 
-.background-container {
+.background_container {
   position: absolute;
   inset: 0;
   overflow: hidden;

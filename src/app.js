@@ -14,6 +14,7 @@ import LightPage from "./pages/light.vue";
 const head = createHead();
 
 const router = createRouter({
+  linkActiveClass: "active",
   history: createWebHashHistory(),
   routes: [
     {

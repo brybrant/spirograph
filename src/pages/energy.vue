@@ -1,5 +1,5 @@
 <template>
-  <div class="background-container">
+  <div class="background_container">
     <div class="background">
       <div class="spirograph">
         <div v-for="a in Array(128)" :key="a" class="a">
