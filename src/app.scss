@@ -28,7 +28,7 @@ html {
   position: relative;
   background: #000;
   font-size: 200%;
-  font-size: clamp(100%, 6vw, 200%);
+  font-size: clamp(100%, min(6vw, 4vh), 200%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
@@ -37,7 +37,7 @@ html {
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   min-height: 100vh;
   margin: 0;
   font-weight: 700;
