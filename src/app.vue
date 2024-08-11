@@ -12,7 +12,7 @@ export default {
   head() {
     return {
       titleTemplate: (title) => {
-        return !title ? "Spirograph" : `${title} | Spirograph`;
+        return !title ? 'Spirograph' : `${title} | Spirograph`;
       },
     };
   },

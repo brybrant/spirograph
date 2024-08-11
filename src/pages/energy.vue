@@ -19,15 +19,15 @@
 
 <script>
 export default {
-  name: "EnergyPage",
+  name: 'EnergyPage',
   head() {
     return {
-      title: "Energy",
+      title: 'Energy',
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "./energy.scss";
+@import './energy.scss';
 </style>

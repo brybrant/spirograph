@@ -1,5 +1,5 @@
 <script setup>
-import GithubSVG from "../svg/github.vue";
+import GithubSVG from '../svg/github.vue';
 
 defineProps({
   href: {

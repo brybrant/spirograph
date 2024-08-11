@@ -19,15 +19,15 @@
 
 <script>
 export default {
-  name: "MassPage",
+  name: 'MassPage',
   head() {
     return {
-      title: "Mass",
+      title: 'Mass',
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "./mass.scss";
+@import './mass.scss';
 </style>

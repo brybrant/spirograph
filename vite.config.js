@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint2';
 import stylelintPlugin from 'vite-plugin-stylelint';
 import vuePlugin from '@vitejs/plugin-vue';
@@ -18,7 +18,7 @@ export default defineConfig({
     vuePlugin(),
     eslintPlugin({
       lintInWorker: true,
-    })
+    }),
   ],
   server: {
     host: '127.0.0.1',

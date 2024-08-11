@@ -19,15 +19,15 @@
 
 <script>
 export default {
-  name: "LightPage",
+  name: 'LightPage',
   head() {
     return {
-      title: "Light",
+      title: 'Light',
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "./light.scss";
+@import './light.scss';
 </style>
