@@ -20,15 +20,15 @@
   },
   "dependencies": {
     "@unhead/vue": "^1.9.16",
-    "vue": "^3.4.27",
-    "vue-router": "^4.4.0"
+    "vue": "^3.4.37",
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
     "@brybrant/configs": "github:brybrant/configs",
-    "@vitejs/plugin-vue": "^5.1.0",
+    "@vitejs/plugin-vue": "^5.1.2",
     "eslint-plugin-vue": "^9.27.0",
     "sass": "^1.77.8",
-    "vite": "^5.3.5",
+    "vite": "^5.4.0",
     "vite-plugin-eslint2": "^4.4.0",
     "vite-plugin-stylelint": "^5.3.1"
   },
