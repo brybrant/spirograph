@@ -29,5 +29,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './light.scss';
+@use './light.scss' as *;
 </style>

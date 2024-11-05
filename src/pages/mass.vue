@@ -29,5 +29,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './mass.scss';
+@use './mass.scss' as *;
 </style>

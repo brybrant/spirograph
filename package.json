@@ -1,9 +1,9 @@
 {
-  "name": "spirograph",
+  "name": "@brybrant/spirograph",
   "author": "brybrant",
   "license": "GPL-3.0-only",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,23 +14,28 @@
     "type": "git",
     "url": "https://github.com/brybrant/spirograph.git"
   },
+  "homepage": "https://brybrant.github.io/spirograph/",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"
   },
   "dependencies": {
-    "@unhead/vue": "^1.9.16",
-    "vue": "^3.4.37",
-    "vue-router": "^4.4.3"
+    "@unhead/vue": "^1.11.11",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@brybrant/configs": "github:brybrant/configs",
-    "@vitejs/plugin-vue": "^5.1.2",
-    "eslint-plugin-vue": "^9.27.0",
-    "sass": "^1.77.8",
-    "vite": "^5.4.0",
-    "vite-plugin-eslint2": "^4.4.0",
-    "vite-plugin-stylelint": "^5.3.1"
+    "@brybrant/svg-icons": "github:brybrant/svg-icons",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "eslint-plugin-vue": "^9.30.0",
+    "globals": "^15.11.0",
+    "sass-embedded": "^1.80.6",
+    "terser": "^5.36.0",
+    "vite": "^5.4.10",
+    "vite-plugin-eslint2": "^5.0.1",
+    "vite-plugin-stylelint": "^5.3.1",
+    "vite-plugin-svgo": "^1.6.2"
   },
   "browserslist": [
     "> 1%, not dead, not ie 11, not op_mini all"

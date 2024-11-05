@@ -3,7 +3,7 @@
     <div class="background">
       <div class="spirograph">
         <div v-for="a in Array(128)" :key="a" class="a">
-          <div class="b" />
+          <div class="b"></div>
         </div>
       </div>
     </div>
@@ -29,5 +29,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './energy.scss';
+@use './energy.scss' as *;
 </style>

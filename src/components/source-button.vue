@@ -1,5 +1,5 @@
 <script setup>
-import GithubSVG from '../svg/github.vue';
+import GithubSVG from '../../node_modules/@brybrant/svg-icons/GitHub.svg';
 
 defineProps({
   href: {
@@ -15,6 +15,6 @@ defineProps({
     target="_blank"
     :href="`https://github.com/brybrant/spirograph${href}`"
   >
-    <GithubSVG />View Source
+    <span v-html="GithubSVG"></span>View Source
   </a>
 </template>
