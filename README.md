@@ -1,6 +1,6 @@
 # Spirograph
 
-Some CSS experiments made with [Vue](https://vuejs.org/) and [Vite](https://vitejs.dev) by Matt Bryant:
+Some Canvas experiments made with [Vue](https://vuejs.org/) and [Vite](https://vitejs.dev) by Matt Bryant:
 
 - [Mass](https://brybrant.github.io/spirograph/#/mass)
 - [Energy](https://brybrant.github.io/spirograph/#/energy)
