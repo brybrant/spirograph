@@ -9,12 +9,10 @@
 
 <script>
 export default {
-  head() {
-    return {
-      titleTemplate: (title) => {
-        return !title ? 'Spirograph' : `${title} | Spirograph`;
-      },
-    };
+  head: {
+    titleTemplate: (title) => {
+      return !title ? 'Spirograph' : `${title} | Spirograph`;
+    },
   },
 };
 </script>

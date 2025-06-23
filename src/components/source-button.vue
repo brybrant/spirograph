@@ -14,7 +14,6 @@ defineProps({
     class="button"
     target="_blank"
     :href="`https://github.com/brybrant/spirograph${href}`"
-  >
-    <span v-html="GithubSVG"></span>View Source
-  </a>
+    v-html="GithubSVG"
+  ></a>
 </template>

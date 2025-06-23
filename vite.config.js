@@ -19,16 +19,10 @@ export default defineConfig(({ mode }) => {
     },
     css: {
       postcss: configs.postCSSConfig,
-      preprocessorOptions: {
-        scss: {
-          api: 'modern-compiler',
-        },
-      },
     },
     plugins: [
       stylelintPlugin({
         lintInWorker: true,
-        config: configs.stylelintConfig,
       }),
       svgoPlugin(configs.svgoConfig),
       vuePlugin(),
