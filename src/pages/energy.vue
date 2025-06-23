@@ -5,7 +5,7 @@
   <main>
     <h1>Energy</h1>
 
-    <SourceButton href="/blob/master/src/pages/energy.scss" />
+    <SourceButton href="/blob/master/src/pages/energy.vue" />
   </main>
 </template>
 

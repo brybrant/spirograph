@@ -5,7 +5,7 @@
   <main>
     <h1>Light</h1>
 
-    <SourceButton href="/blob/master/src/pages/light.scss" />
+    <SourceButton href="/blob/master/src/pages/light.vue" />
   </main>
 </template>
 

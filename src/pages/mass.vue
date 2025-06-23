@@ -5,7 +5,7 @@
   <main>
     <h1>Mass</h1>
 
-    <SourceButton href="/blob/master/src/pages/mass.scss" />
+    <SourceButton href="/blob/master/src/pages/mass.vue" />
   </main>
 </template>
 
