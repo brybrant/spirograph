@@ -59,12 +59,21 @@ export default {
       this.context.strokeStyle = this.color;
     },
     animation(timestamp) {
+      // this.context.clearRect(
+      //   -this.halfWidth,
+      //   -this.halfHeight,
+      //   this.canvas.width,
+      //   this.canvas.height,
+      // );
+
       this.context.clearRect(
-        -this.halfWidth,
-        -this.halfHeight,
-        this.canvas.width,
-        this.canvas.height,
+        -this.radius,
+        -this.radius,
+        this.radius * 2,
+        this.radius * 2,
       );
+
+      this.context.rotate(3e-4);
 
       const deltaTime = timestamp - this.lastTimestamp;
       this.lastTimestamp = timestamp;
