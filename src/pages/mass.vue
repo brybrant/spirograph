@@ -31,8 +31,8 @@ export default {
   methods: {
     /**
      * @param {CanvasRenderingContext2D} context
-     * @param {Number} radius
-     * @param {Number} deltaTime
+     * @param {number} radius
+     * @param {number} deltaTime
      */
     render(context, radius, deltaTime) {
       const radiusInner = radius * 0.15;
