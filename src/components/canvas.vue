@@ -59,13 +59,6 @@ export default {
       this.context.strokeStyle = this.color;
     },
     animation(timestamp) {
-      // this.context.clearRect(
-      //   -this.halfWidth,
-      //   -this.halfHeight,
-      //   this.canvas.width,
-      //   this.canvas.height,
-      // );
-
       this.context.clearRect(
         -this.radius,
         -this.radius,
