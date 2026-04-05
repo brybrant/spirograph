@@ -166,8 +166,8 @@ h1 {
   border-radius: 50%;
   background: rgba(#000, .5);
   color: #fff;
-  cursor: pointer;
   backdrop-filter: blur(2px);
+  cursor: pointer;
 
   &:active {
     color: #ccc;

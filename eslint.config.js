@@ -1,7 +1,7 @@
 import eslintPluginVue from 'eslint-plugin-vue';
 import globals from 'globals';
 
-import { eslintConfig } from '@brybrant/configs';
+import eslintConfig from '@brybrant/eslint-config';
 
 export default eslintConfig(...eslintPluginVue.configs['flat/recommended'], {
   languageOptions: {

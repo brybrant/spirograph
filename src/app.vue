@@ -1,8 +1,14 @@
 <template>
   <nav>
-    <RouterLink to="/mass"><span>Mass</span></RouterLink>
-    <RouterLink to="/energy"><span>Energy</span></RouterLink>
-    <RouterLink to="/light"><span>Light</span></RouterLink>
+    <RouterLink to='/mass'>
+      <span>Mass</span>
+    </RouterLink>
+    <RouterLink to='/energy'>
+      <span>Energy</span>
+    </RouterLink>
+    <RouterLink to='/light'>
+      <span>Light</span>
+    </RouterLink>
   </nav>
   <RouterView />
 </template>

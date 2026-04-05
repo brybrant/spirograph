@@ -1,5 +1,5 @@
 <script setup>
-import GithubSVG from '../../node_modules/@brybrant/svg-icons/GitHub.svg';
+import GithubSVG from '@brybrant/svg-icons/GitHub.svg';
 
 defineProps({
   href: {
@@ -11,9 +11,9 @@ defineProps({
 
 <template>
   <a
-    class="button"
-    target="_blank"
-    :href="`https://github.com/brybrant/spirograph${href}`"
-    v-html="GithubSVG"
-  ></a>
+    class='button'
+    target='_blank'
+    :href='`https://github.com/brybrant/spirograph${href}`'
+    v-html='GithubSVG'
+  />
 </template>

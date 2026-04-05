@@ -1,11 +1,14 @@
 <template>
-  <div class="background">
-    <CanvasElement :render="render" color="#ff0" />
+  <div class='background'>
+    <CanvasElement
+      :render='render'
+      color='#ff0'
+    />
   </div>
   <main>
     <h1>Light</h1>
 
-    <SourceButton href="/blob/master/src/pages/light.vue" />
+    <SourceButton href='/blob/master/src/pages/light.vue' />
   </main>
 </template>
 
@@ -64,7 +67,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 .button {
   &:hover {
     color: #ff0;
