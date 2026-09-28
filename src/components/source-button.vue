@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import GithubSVG from '@brybrant/svg-icons/GitHub.svg';
 
 defineProps({
@@ -11,9 +11,9 @@ defineProps({
 
 <template>
   <a
-    class='button'
-    target='_blank'
-    :href='`https://github.com/brybrant/spirograph${href}`'
-    v-html='GithubSVG'
+    class="button"
+    target="_blank"
+    :href="`https://github.com/brybrant/spirograph${href}`"
+    v-html="GithubSVG"
   />
 </template>
