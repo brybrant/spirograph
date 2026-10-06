@@ -13,12 +13,10 @@ const RAD90 = Math.PI / 2;
 const STEP_ANGLE = (Math.PI * 2) / STEPS;
 const STEP_ANGLE_CONTROL = Math.PI / STEPS;
 
-const expansion = ref(0);
-
-const cosControlSteps = new Float32Array(STEPS);
-const sinControlSteps = new Float32Array(STEPS);
-const cosEndSteps = new Float32Array(STEPS);
-const sinEndSteps = new Float32Array(STEPS);
+const COS_CONTROL_STEPS = new Float32Array(STEPS);
+const SIN_CONTROL_STEPS = new Float32Array(STEPS);
+const COS_END_STEPS = new Float32Array(STEPS);
+const SIN_END_STEPS = new Float32Array(STEPS);
 
 let startAngle = 0;
 
@@ -26,13 +24,15 @@ for (let i = 0; i < STEPS; i++) {
   const controlAngle = startAngle + RAD90 + STEP_ANGLE_CONTROL;
   const endAngle = startAngle + Math.PI + STEP_ANGLE;
 
-  cosControlSteps[i] = Math.cos(controlAngle);
-  sinControlSteps[i] = Math.sin(controlAngle);
-  cosEndSteps[i] = Math.cos(endAngle);
-  sinEndSteps[i] = Math.sin(endAngle);
+  COS_CONTROL_STEPS[i] = Math.cos(controlAngle);
+  SIN_CONTROL_STEPS[i] = Math.sin(controlAngle);
+  COS_END_STEPS[i] = Math.cos(endAngle);
+  SIN_END_STEPS[i] = Math.sin(endAngle);
 
   startAngle = endAngle;
 }
+
+const expansion = ref(0);
 
 const render: RenderCallback = (context, radius, deltaTime) => {
   const radiusInner = radius * 0.15;
@@ -48,10 +48,10 @@ const render: RenderCallback = (context, radius, deltaTime) => {
 
   for (let i = 0; i < STEPS; i++) {
     context.quadraticCurveTo(
-      cosControlSteps[i] * offset,
-      sinControlSteps[i] * offset,
-      cosEndSteps[i] * radius,
-      sinEndSteps[i] * radius,
+      COS_CONTROL_STEPS[i] * offset,
+      SIN_CONTROL_STEPS[i] * offset,
+      COS_END_STEPS[i] * radius,
+      SIN_END_STEPS[i] * radius,
     );
   }
 

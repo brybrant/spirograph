@@ -17,11 +17,10 @@ const props = defineProps({
 
 const canvas = useTemplateRef<HTMLCanvasElement>('canvas');
 const context = ref<CanvasRenderingContext2D | null>(null);
-const pixelRatio = ref(window.devicePixelRatio);
-const width = ref(document.documentElement.getBoundingClientRect().width);
-const height = ref(document.documentElement.getBoundingClientRect().height);
-const widthDPR = computed(() => Math.round(width.value * pixelRatio.value));
-const heightDPR = computed(() => Math.round(height.value * pixelRatio.value));
+const width = ref(1920);
+const height = ref(1080);
+const widthDPR = computed(() => Math.round(width.value * window.devicePixelRatio));
+const heightDPR = computed(() => Math.round(height.value * window.devicePixelRatio));
 const midX = computed(() => widthDPR.value / 2);
 const midY = computed(() => heightDPR.value / 2);
 const radius = computed(() => {
@@ -34,8 +33,10 @@ const frame = ref(0);
 const resize = () => {
   if (!canvas.value || !context.value) return;
 
-  width.value = document.documentElement.getBoundingClientRect().width;
-  height.value = document.documentElement.getBoundingClientRect().height;
+  const rect = document.documentElement.getBoundingClientRect();
+
+  width.value = rect.width;
+  height.value = rect.height;
 
   canvas.value.width = widthDPR.value;
   canvas.value.height = heightDPR.value;
@@ -43,17 +44,6 @@ const resize = () => {
   context.value.strokeStyle = props.color;
   context.value.setTransform(1, 0, 0, 1, midX.value, midY.value);
   context.value.lineWidth = 2;
-};
-
-let resizeFrame: number | null = null;
-
-const scheduleResize = () => {
-  if (resizeFrame) return;
-
-  resizeFrame = window.requestAnimationFrame(() => {
-    resizeFrame = null;
-    resize();
-  });
 };
 
 const animation = (timestamp: number) => {
@@ -76,8 +66,6 @@ const animation = (timestamp: number) => {
   frame.value = window.requestAnimationFrame(animation);
 };
 
-let removeMediaQuery = () => {};
-
 onMounted(() => {
   if (!canvas.value) return;
 
@@ -85,34 +73,15 @@ onMounted(() => {
 
   if (!context.value) return;
 
-  const updatePixelRatio = () => {
-    removeMediaQuery();
+  resize();
 
-    const mediaQuery = `(resolution: ${window.devicePixelRatio}x)`;
-    const media = window.matchMedia(mediaQuery);
-
-    media.addEventListener('change', updatePixelRatio);
-
-    removeMediaQuery = () => {
-      media.removeEventListener('change', updatePixelRatio);
-    };
-
-    pixelRatio.value = window.devicePixelRatio;
-
-    scheduleResize();
-  };
-
-  updatePixelRatio();
-
-  window.addEventListener('resize', scheduleResize);
+  window.addEventListener('resize', resize);
 
   frame.value = window.requestAnimationFrame(animation);
 });
 
 onUnmounted(() => {
-  removeMediaQuery();
-
-  window.removeEventListener('resize', scheduleResize);
+  window.removeEventListener('resize', resize);
 
   window.cancelAnimationFrame(frame.value);
 });

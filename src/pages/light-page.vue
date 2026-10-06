@@ -12,17 +12,17 @@ const STEPS = 96;
 const RAD20 = Math.PI / 9;
 const STEP_ANGLE = Math.PI / (STEPS / 2);
 
-const reflection = ref(0);
-
-const cosSteps = new Float32Array(STEPS);
-const sinSteps = new Float32Array(STEPS);
+const COS_STEPS = new Float32Array(STEPS);
+const SIN_STEPS = new Float32Array(STEPS);
 
 for (let i = 0; i < STEPS; i++) {
   const angle = i * STEP_ANGLE;
 
-  cosSteps[i] = Math.cos(angle);
-  sinSteps[i] = Math.sin(angle);
+  COS_STEPS[i] = Math.cos(angle);
+  SIN_STEPS[i] = Math.sin(angle);
 }
+
+const reflection = ref(0);
 
 const render: RenderCallback = (context, radius, deltaTime) => {
   const radiusInner = radius * 0.35;
@@ -37,8 +37,8 @@ const render: RenderCallback = (context, radius, deltaTime) => {
   context.beginPath();
 
   for (let i = 0; i < STEPS; i++) {
-    const stepCos = cosSteps[i];
-    const stepSin = sinSteps[i];
+    const stepCos = COS_STEPS[i];
+    const stepSin = SIN_STEPS[i];
 
     context.moveTo(
       (stepCos * cosOffset + stepSin * sinOffset) * radius,
